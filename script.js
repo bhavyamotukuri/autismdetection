@@ -1,0 +1,9 @@
+async function fetchJSON(url){
+  try{
+    const res = await fetch(url);
+    return await res.json();
+  }catch(err){
+    console.error("Failed to fetch JSON",err);
+    return [];
+  }
+}

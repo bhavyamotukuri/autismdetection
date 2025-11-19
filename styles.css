@@ -1,0 +1,342 @@
+:root {
+  --primary: #5b52bb;
+  --secondary: #5b52bb;
+  --accent: #ececec;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --text: #fff9f9;
+  --shadow: rgba(0,0,0,0.15);
+  --radius: 12px;
+  --font: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('meow.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  background: var(--primary);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.topbar h1 {
+  font-size: 1.8rem;
+}
+
+.topbar nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.topbar nav a:hover,
+.topbar nav a.active {
+  color: var(--accent);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px var(--shadow);
+  flex: 1 1 200px;
+  max-width: 220px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--secondary);
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px var(--shadow);
+}
+
+.news-grid,
+.videos-grid,
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.news-card,
+.video-card,
+.contact-card {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover,
+.video-card:hover,
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px var(--shadow);
+}
+
+.news-card img,
+.video-card img,
+.contact-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.news-card h3,
+.video-card h3,
+.contact-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.news-card h3 a,
+.video-card h3 a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.news-card h3 a:hover,
+.video-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.news-card p,
+.video-card p,
+.contact-card p {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.news-card small,
+.video-card small {
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.read-more {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: var(--secondary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: auto;
+  text-align: center;
+}
+
+.read-more:hover {
+  background: var(--accent);
+}
+
+.contact-buttons {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.contact-buttons .btn {
+  text-decoration: none;
+  padding: 6px 12px;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.contact-buttons .btn:hover {
+  background: var(--accent);
+}
+
+#mchat-form div {
+  background: var(--card-bg);
+  padding: 14px;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+button {
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: var(--accent);
+}
+
+#chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+  cursor: pointer;
+}
+
+#chat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--secondary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.chat-box {
+  width: 350px;
+  height: 450px;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.chat-header {
+  background: var(--accent);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.chat-body {
+  flex: 1;
+  background: #f9fafb;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 16px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background: var(--secondary);
+  color: white;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background: #e5e7eb;
+  color: #111;
+  align-self: flex-start;
+}
+
+.chat-input-container {
+  display: flex;
+  padding: 8px;
+  background: #f3f4f6;
+}
+
+.chat-input-container input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 12px 0 0 12px;
+  border: 1px solid #5b52bb;
+  outline: none;
+}
+
+.chat-input-container button {
+  padding: 8px 16px;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 0 12px 12px 0;
+  cursor: pointer;
+}
+
+@media(max-width: 768px){
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topbar nav {
+    margin-top: 12px;
+  }
+}

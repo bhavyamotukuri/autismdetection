@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autism Specialists & Clinics – AutismHub</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .container {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #f08cb0;
+      margin-bottom: 10px;
+    }
+    p.description {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 40px;
+    }
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .contact-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+    .contact-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .contact-card h3 {
+      color: #f08cb0;
+      margin-bottom: 10px;
+    }
+    .contact-card p {
+      color: #333;
+      font-size: 0.95rem;
+      margin: 4px 0;
+    }
+    .contact-buttons {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .contact-buttons .btn {
+      background-color: #f8bbd0;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .contact-buttons .btn:hover {
+      background-color: #f08cb0;
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <h1>AutismHub</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="videos.html">Videos</a>
+     <a href="mri_scan.html">MRI Scan</a>
+    <a href="mchat.html">M-CHAT</a>
+    <a href="contacts.html" class="active">Contacts</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>Autism Specialists & Clinics</h1>
+  <p class="description">Contact information for autism-related doctors and clinics. Always call ahead and verify availability.</p>
+
+  <div class="contacts-grid" id="contacts-container">
+
+  </div>
+</main>
+
+<script>
+const contacts = [
+  {
+    name: "Dr. Anjali Mehta",
+    specialty: "Child Neurology & Autism Specialist",
+    phone: "+91 98765 43210",
+    email: "anjali.mehta@example.com",
+    location: "Mumbai, India",
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAABbObilAAAAElBMVEX///8AAAB/f3+jo6P4+PjOzs7s7OzK1ZwYAAABFklEQVR4nO3UQQ0AAAjDMO5fNCD0gRQCzY8l3slrDRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8BxwFqa9o1UAAAAASUVORK5CYII="
+  },
+  {
+    name: "Dr. Rajesh Kumar",
+    specialty: "Pediatric Psychiatrist",
+    phone: "+91 91234 56789",
+    email: "rajesh.kumar@example.com",
+    location: "Delhi, India",
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAABbObilAAAAElBMVEX///8AAAB/f3+jo6P4+PjOzs7s7OzK1ZwYAAABFklEQVR4nO3UQQ0AAAjDMO5fNCD0gRQCzY8l3slrDRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8BxwFqa9o1UAAAAASUVORK5CYII="
+  },
+  {
+    name: "Sunshine Autism Clinic",
+    specialty: "Early Intervention & Therapy Center",
+    phone: "+91 99887 66554",
+    email: "contact@sunshineclinic.com",
+    location: "Bengaluru, India",
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAABbObilAAAAElBMVEX///8AAAB/f3+jo6P4+PjOzs7s7OzK1ZwYAAABFklEQVR4nO3UQQ0AAAjDMO5fNCD0gRQCzY8l3slrDRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8BxwFqa9o1UAAAAASUVORK5CYII="
+  },
+  {
+    name: "Dr. Priya Sharma",
+    specialty: "Developmental Pediatrician",
+    phone: "+91 98765 12345",
+    email: "priya.sharma@example.com",
+    location: "Chennai, India",
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAABbObilAAAAElBMVEX///8AAAB/f3+jo6P4+PjOzs7s7OzK1ZwYAAABFklEQVR4nO3UQQ0AAAjDMO5fNCD0gRQCzY8l3slrDRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8BxwFqa9o1UAAAAASUVORK5CYII="
+  },
+  {
+    name: "Hope Autism Center",
+    specialty: "Behavioral Therapy & Counseling",
+    phone: "+91 87654 32109",
+    email: "info@hopeautismcenter.com",
+    location: "Kolkata, India",
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAABbObilAAAAElBMVEX///8AAAB/f3+jo6P4+PjOzs7s7OzK1ZwYAAABFklEQVR4nO3UQQ0AAAjDMO5fNCD0gRQCzY8l3slrDRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8BxwFqa9o1UAAAAASUVORK5CYII="
+  }
+];
+
+
+const container = document.getElementById("contacts-container");
+contacts.forEach(contact => {
+  const card = document.createElement("div");
+  card.className = "contact-card";
+  card.innerHTML = `
+    <img src="${contact.image}" alt="${contact.name}" />
+    <h3>${contact.name}</h3>
+    <p><strong>Specialty:</strong> ${contact.specialty}</p>
+    <p><strong>Location:</strong> ${contact.location}</p>
+    <p>📞 ${contact.phone}</p>
+    <p>✉ ${contact.email}</p>
+  `;
+  container.appendChild(card);
+});
+
+</script>
+
+
+<div id="chatbot">
+  <div id="chat-icon">💬</div>
+  <div class="chat-box" style="display:none;">
+    <div class="chat-header">AutismHub Assistant</div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type your message..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script src="chatbot.js"></script>
+</body>
+</html>

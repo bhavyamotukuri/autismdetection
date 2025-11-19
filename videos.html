@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutismHub — Videos</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body {
+    background: url('meow.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+  }
+  .container {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  h2 {
+    color: #f08cb0;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  #videos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .video-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+  }
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+  .video-card iframe {
+    width: 100%;
+    height: 140px;
+    border: none;
+  }
+  .video-content {
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .video-content a {
+    font-weight: 600;
+    color: #f08cb0;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+  .video-content a:hover {
+    text-decoration: underline;
+  }
+  .video-content p {
+    color: #333;
+    font-size: 0.9rem;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .video-content small {
+    color: #666;
+    font-size: 0.75rem;
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <h1>AutismHub</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="videos.html" class="active">Videos</a>
+     <a href="mri_scan.html">MRI Scan</a>
+    <a href="mchat.html">M-CHAT</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h2>Educational Videos on Autism & Mental Health</h2>
+  <div id="videos-container">
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/TJuwhCIQQTs" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=TJuwhCIQQTs" target="_blank">What is Autism? | Quick Learner</a>
+        <p>An introductory video explaining autism spectrum disorder, symptoms, and interventions.</p>
+        <small>Quick Learner | 2021</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/YtvP5A5OHpU" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=YtvP5A5OHpU" target="_blank">Early Signs of Autism | Kennedy Krieger</a>
+        <p>Highlights subtle signs of autism that parents might miss and early intervention tips.</p>
+        <small>Kennedy Krieger Institute | 2020</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/y4vurv9usYA" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=y4vurv9usYA" target="_blank">What it's really like to have autism | Ethan Lisi</a>
+        <p>A personal perspective on living with autism and daily challenges.</p>
+        <small>Ethan Lisi | 2019</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/YeamHE6Kank" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=YeamHE6Kank" target="_blank">Let's talk about ADHD</a>
+        <p>An animation explaining ADHD symptoms, behaviors, and strategies for support.</p>
+        <small>Animation Channel | 2020</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/ktb520seHYk" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=ktb520seHYk" target="_blank">ADHD 101 - Parenting Tips</a>
+        <p>Discusses core difficulties related to ADHD and strategies for parents.</p>
+        <small>Child Mind Institute | 2021</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/Pdc8_ayqDtg" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=Pdc8_ayqDtg" target="_blank">What is ADHD?</a>
+        <p>An animated explanation of ADHD in children and teens.</p>
+        <small>Animated Psych Education | 2020</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/DxIDKZHW3-E" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=DxIDKZHW3-E" target="_blank">We All Have Mental Health</a>
+        <p>An animation promoting mental health awareness for all ages.</p>
+        <small>TED-Ed | 2020</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/uPh4-DU6MDU" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=uPh4-DU6MDU" target="_blank">What is Mental Health?</a>
+        <p>Explains mental health, why it matters, and ways to seek support.</p>
+        <small>Mental Health Foundation | 2020</small>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/nCrjevx3-Js" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=nCrjevx3-Js" target="_blank">Talking Mental Health</a>
+        <p>Educational video helping teens and adults talk about mental health.</p>
+        <small>Psych Hub | 2021</small>
+      </div>
+    </div>
+
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/rkZl2gsLUp4" allowfullscreen></iframe>
+      <div class="video-content">
+        <a href="https://www.youtube.com/watch?v=rkZl2gsLUp4" target="_blank">How to Manage Your Mental Health</a>
+        <p>Discusses physical movement, routines, and techniques for better mental health.</p>
+        <small>Leon Taylor | 2021</small>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="chatbot.js"></script>
+</body>
+</html>

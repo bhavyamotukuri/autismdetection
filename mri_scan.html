@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutismHub — MRI Scan Test</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .container {
+    max-width: 700px;
+    margin: 50px auto;
+    background: rgba(255,255,255,0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  h2 {
+    color: #f08cb0;
+    margin-bottom: 20px;
+  }
+  input[type="file"] {
+    margin: 20px 0;
+  }
+  button {
+    background: #f08cb0;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #e36b99;
+  }
+  #preview {
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  #result {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <h1>AutismHub</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="videos.html">Videos</a>
+     <a href="mri_scan.html">MRI Scan</a>
+    <a href="mchat.html">M-CHAT</a>
+    <a href="contacts.html">Contacts</a>
+    
+  </nav>
+</header>
+
+<main class="container">
+  <h2>MRI Scan Autism Detection</h2>
+  <p>Upload an MRI image.</p>
+  
+  <input type="file" id="mriInput" accept="image/*">
+  <br>
+  <button id="predictBtn">Predict</button>
+
+  <img id="preview" src="" alt="" hidden>
+  <div id="result"></div>
+</main>
+
+<script>
+const mriInput = document.getElementById('mriInput');
+const preview = document.getElementById('preview');
+const result = document.getElementById('result');
+const predictBtn = document.getElementById('predictBtn');
+
+
+mriInput.addEventListener('change', () => {
+  const file = mriInput.files[0];
+  if (file) {
+    preview.src = URL.createObjectURL(file);
+    preview.hidden = false;
+    result.innerText = '';
+  }
+});
+
+predictBtn.addEventListener('click', () => {
+  if (!mriInput.files[0]) {
+    alert('Please upload an MRI image first.');
+    return;
+  }
+
+  result.innerText = '.';
+});
+</script>
+
+<script src="chatbot.js"></script>
+</body>
+</html>

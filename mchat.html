@@ -1,0 +1,184 @@
+New mri_chat.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AutismHub — M-CHAT</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .container {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #f08cb0;
+      margin-bottom: 10px;
+    }
+    p.description {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+    #mchat-form {
+      background: rgba(255,255,255,0.85);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    #mchat-form div {
+      margin-bottom: 15px;
+    }
+    #mchat-form label {
+      display:block;
+      font-weight:500;
+      margin-bottom:6px;
+      color:#f08cb0;
+    }
+    #mchat-form select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    #mchat-form button {
+      background-color: #f8bbd0;
+      color: #fff;
+      padding: 10px 20px;
+      border:none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    #mchat-form button:hover {
+      background-color: #f08cb0;
+    }
+    #result {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      text-align:center;
+      font-weight:600;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <h1>AutismHub</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="videos.html">Videos</a>
+      <a href="mri_scan.html">MRI Scan</a>
+      <a href="mchat.html" class="active">M-CHAT</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>M-CHAT Checklist</h2>
+    <p class="description">This checklist contains the standard 20 M-CHAT questions. Select “Yes” or “No” for each. </p>
+
+    <form id="mchat-form">
+      <div id="questions"></div>
+      <button type="submit">Calculate Risk</button>
+    </form>
+
+    <div id="result"></div>
+  </main>
+
+  <script>
+    const questions = [
+      "Does your child enjoy being swung, bounced, or jumped on your knee?",
+      "Does your child take an interest in other children?",
+      "Does your child point to indicate interest?",
+      "Does your child play pretend or make-believe?",
+      "Have you ever been concerned that your child is deaf?",
+      "Does your child ever bring objects to show you?",
+      "Does your child look at things you are looking at?",
+      "Does your child respond to their name when called?",
+      "If you point at a toy across the room, does your child look at it?",
+      "Does your child imitate you?",
+      "Does your child show interest in other children’s play?",
+      "Does your child enjoy climbing on things like stairs?",
+      "Does your child have unusual finger movements near their face?",
+      "Does your child walk on toes?",
+      "Does your child have unusual sensory interests (e.g., sniffing objects)?",
+      "Does your child show affection appropriately?",
+      "Does your child respond to caregivers’ facial expressions?",
+      "Does your child enjoy social games like peek-a-boo?",
+      "Does your child ever seem overly interested in parts of objects?",
+      "Does your child point to express interest or attention?"
+    ];
+
+    const qContainer = document.getElementById("questions");
+
+    questions.forEach((q,i)=>{
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <label><strong>Q${i+1}:</strong> ${q}</label>
+        <select name="q${i}">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      `;
+      qContainer.appendChild(div);
+    });
+
+    document.getElementById("mchat-form").addEventListener("submit", e=>{
+      e.preventDefault();
+      const form = e.target;
+      let riskScore = 0;
+
+      const highRiskQuestions = [0,1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
+      highRiskQuestions.forEach(i=>{
+        if(form[`q${i}`].value === "no") riskScore++;
+      });
+
+      const resultDiv = document.getElementById("result");
+      let riskMessage = "";
+      let color = "";
+
+      if(riskScore <= 2){
+        riskMessage = "Low risk — likely no autism concerns.";
+        color = "green";
+      } else if(riskScore <= 7){
+        riskMessage = "Medium risk — monitor development and consider professional advice.";
+        color = "#f0a500";
+      } else if(riskScore <= 14){
+        riskMessage = "High risk — professional evaluation strongly recommended.";
+        color = "orange";
+      } else {
+        riskMessage = "Very high risk — immediate professional consultation advised.";
+        color = "red";
+      }
+
+      resultDiv.innerHTML = `<p><strong>Score: ${riskScore} out of 20</strong></p>` +
+                            `<p style="color:${color}; font-weight:600;">${riskMessage}</p>`;
+    });
+  </script>
+
+  <div id="chatbot">
+    <div id="chat-icon">💬</div>
+    <div class="chat-box" style="display:none;">
+      <div class="chat-header">AutismHub Assistant</div>
+      <div class="chat-body" id="chat-body"></div>
+      <div class="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Type your message..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>
+

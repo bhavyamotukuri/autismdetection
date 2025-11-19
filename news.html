@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutismHub — News</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .container {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  h2 {
+    color: #f08cb0;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  #news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  #news-container article {
+    background: rgba(255,255,255,0.85);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 350px; 
+  }
+  #news-container article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+  #news-container article img {
+    width: 100%;
+    height: 140px; 
+    object-fit: cover;
+  }
+  #news-container article .news-content {
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #news-container article a {
+    font-weight: 600;
+    color: #f08cb0;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+  #news-container article a:hover {
+    text-decoration: underline;
+  }
+  #news-container article p {
+    color: #333;
+    font-size: 0.9rem;
+    margin: 4px 0;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #news-container article small {
+    color: #666;
+    font-size: 0.75rem;
+  }
+  #error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <h1>AutismHub</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="news.html" class="active">News</a>
+    <a href="videos.html">Videos</a>
+     <a href="mri_scan.html">MRI Scan</a>
+    <a href="mchat.html">M-CHAT</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h2>Latest Autism, ADHD & Mental Health News</h2>
+  <div id="news-container">
+    <p>Loading news...</p>
+  </div>
+  <div id="error-message"></div>
+</main>
+
+<script>
+const newsContainer = document.getElementById('news-container');
+const errorMessage = document.getElementById('error-message');
+
+async function fetchAutismNews() {
+  const apiKey = '5c50e259f11a49b685c60a68410084a0'; // Replace with your NewsAPI key
+  const query = encodeURIComponent('autism OR ADHD OR "mental health"');
+  const trustedDomains = encodeURIComponent('nih.gov,psychologytoday.com,autism-society.org,cdc.gov');
+  const url = `https://newsapi.org/v2/everything?q=${query}&language=en&sortBy=publishedAt&pageSize=50&domains=${trustedDomains}&apiKey=${apiKey}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.json();
+
+    if (!data.articles || data.articles.length === 0) {
+      newsContainer.innerHTML = '<p>No news found.</p>';
+      return;
+    }
+
+    newsContainer.innerHTML = '';
+    data.articles.forEach(article => {
+      const articleEl = document.createElement('article');
+      articleEl.innerHTML = `
+        ${article.urlToImage ? `<img src="${article.urlToImage}" alt="Article Image">` : ''}
+        <div class="news-content">
+          <a href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a>
+          <p>${article.description || ''}</p>
+          <small>${article.source.name} | ${new Date(article.publishedAt).toLocaleDateString()}</small>
+        </div>
+      `;
+      newsContainer.appendChild(articleEl);
+    });
+    errorMessage.textContent = '';
+
+  } catch (error) {
+    errorMessage.textContent = `Failed to fetch news: ${error.message}`;
+    newsContainer.innerHTML = '';
+  }
+}
+
+fetchAutismNews();
+setInterval(fetchAutismNews, 1800000); 
+</script>
+
+<script src="chatbot.js"></script>
+</body>
+</html>

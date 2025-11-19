@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutismHub — Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>AutismHub</h1>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="news.html">News</a>
+    <a href="videos.html">Videos</a>
+     <a href="templates/mri_scan.html">MRI Scan</a>
+    <a href="mchat.html">M-CHAT</a>
+    <a href="contacts.html">Contacts</a>
+   
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero" style="margin-top:60px; text-align:center;">
+    <h2>Welcome to AutismHub</h2>
+    <p>Your hub for autism resources, latest news, videos, and professional contacts. Explore tools and chat with our assistant anytime.</p>
+  </section>
+
+
+  <section class="quick-facts" style="margin-top:60px; text-align:center;">
+    <h3 style="color:#5b52bb; margin-bottom:30px;">Quick Facts About Autism</h3>
+    <div class="cards" style="justify-content:center; flex-wrap:wrap;">
+      <div class="card" style="max-width:250px;">
+        <h4>Early Detection</h4>
+        <p>Early diagnosis leads to better outcomes for children with autism.</p>
+      </div>
+      <div class="card" style="max-width:250px;">
+        <h4>Support & Therapy</h4>
+        <p>Access to therapy and professional support is crucial for development.</p>
+      </div>
+      <div class="card" style="max-width:250px;">
+        <h4>Community</h4>
+        <p>Connecting with families and experts provides guidance and resources.</p>
+      </div>
+      <div class="card" style="max-width:250px;">
+        <h4>Research Updates</h4>
+        <p>Stay informed with the latest studies and breakthroughs.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="cta" style="margin-top:60px; text-align:center;">
+    <h3 style="color:#5b52bb;">Have Questions? </h3>
+    <p style="color:#ffffff; max-width:600px; margin:0 auto;">Click the floating chat icon to interact with our chatbot for support.</p>
+  </section>
+</main>
+
+
+<div id="chatbot">
+  <div id="chat-icon">💬</div>
+  <div class="chat-box" style="display:none;">
+    <div class="chat-header">AutismHub Assistant</div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type your message..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script src="chatbot.js"></script>
+</body>
+</html>
